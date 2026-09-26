@@ -10,6 +10,10 @@ import Cartpage from "./Pages/Cartpage";
 import About from "./Pages/About";
 import Contactpage from "./Pages/Contactpage";
 import ProtectedRoute from "./Components/ProtectedRoute";
+import Admin from "./Pages/Admin" ;
+import AdminProducts from "./Pages/AdminProducts";
+import AdminProtectedRoute from "./Components/AdminProtectedRoute";
+import AdminOrders from "./Pages/AdminOrders";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -67,6 +71,32 @@ function App() {
     <ProtectedRoute>
       <Contactpage />
     </ProtectedRoute>
+  }
+/>
+
+<Route
+  path="/admin"
+  element={
+    <AdminProtectedRoute>
+      <Admin />
+    </AdminProtectedRoute>
+  }
+/>
+
+<Route
+  path="/admin/products"
+  element={
+    <AdminProtectedRoute>
+      <AdminProducts />
+    </AdminProtectedRoute>
+  }
+/>
+<Route
+  path="/admin/orders"
+  element={
+    <AdminProtectedRoute>
+      <AdminOrders />
+    </AdminProtectedRoute>
   }
 />
       </Routes>
